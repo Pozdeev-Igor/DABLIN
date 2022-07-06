@@ -9,6 +9,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState(null);
+
   
   function usernameHandler(e) {
     e.preventDefault();
@@ -64,7 +65,7 @@ const Login = () => {
           .then(([body, headers]) => {
             const authValue = headers.get("authorization");
             //console.log(authValue);
-            localStorage.setItem('jwt', JSON.stringify(authValue));
+            localStorage.setItem('jwt', authValue);
             navigate("/dashboard");
           }));
 
